@@ -18,9 +18,10 @@
 <script src="./js/docs.js?{{docs.version}}"></script>
 <script>
 	F2.extend('gitbranch', (function(){ return '{{branch}}'; }));
-	F2.extend('DocsConfig', (function(){ 
+	F2.extend('Services', (function(){ 
 		return {
-			services: '{{services}}'
+			version: '{{services.version}}',
+			baseDomain: '{{services.baseDomain}}'
 		}; 
 	}));
 </script>

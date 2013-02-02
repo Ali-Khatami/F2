@@ -3,7 +3,7 @@
 		"version": "1.0.6",
 		"shortVersion": "1.0",
 		"releaseDate": "2012-09-25T22:40:16.217Z",
-		"lastUpdateDate": "2013-02-01T19:39:20.942Z",
+		"lastUpdateDate": "2013-02-02T00:34:15.406Z",
 		"lastUpdateDateFormatted": "1 February 2013"
 	},
 	"sdk": {
@@ -12,6 +12,9 @@
 		"releaseDate": "2012-11-11T06:09:36.490Z",
 		"lastUpdateDate": "2013-01-28T18:59:19.341Z"
 	},
-	"branch": "Feature-EntityLookup",
-	"services": "https://services-openf2.markitqa.com"
+	"services": {
+		"version": "1.0",
+		"baseDomain": "https://services-openf2.markitqa.com"
+	},
+	"branch": "Feature-EntityLookup"
 }

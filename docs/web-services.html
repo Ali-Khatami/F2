@@ -71,6 +71,8 @@
             <li class="divider-vertical"></li>
             <li><a href="https://developer.openf2.org">Developer</a></li>
             <li class="divider-vertical"></li>
+            <li><a href="http://openf2.blogspot.com" target="_blank">Blog</a></li>
+            <li class="divider-vertical"></li>
             <li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.0.3</span></a></li>
             <li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.0.3)</a></li>
           </ul>
@@ -123,7 +125,7 @@
 <h1 class="title">F2 Web Services</h1>
 </header>
 <p class="lead">
-Core to any browser-based application, web services provide access to data sets which enable <a href="container-development.html">Container</a> and <a href="app-development.html">App</a> Providers to build customized, multi-vendor solutions. F2 provides the financial industry with this shared specification; now with the addition of a suite of APIs, starting with an F2 Identity service, added utility and collaboration come to the forefront of a powerful web integration framework.
+Core to any browser-based application, web services provide access to data sets which enable <a href="container-development.html">Container</a> and <a href="app-development.html">App</a> Providers to build customized, multi-channel solutions. F2 provides the financial industry with this shared specification; now with the addition of a suite of APIs, starting with an F2 Identity service, added utility and collaboration come to the forefront of a powerful web integration framework.
 </p>
 
 <hr>
@@ -133,13 +135,13 @@ Core to any browser-based application, web services provide access to data sets 
 <ul>
 <li><a href="#f2-id">F2 ID</a></li>
 </ul>
-<p>Complete documentation and demos are found below. If you have any questions about usage, implementation specifics or find any bugs, browse to the <a href="https://groups.google.com/forum/#!forum/OpenF2">F2 Google Group</a> or <a href="https://github.com/OpenF2/F2/issues">Issues on GitHub</a>.</p>
+<p>Complete documentation and demos are found below. If you have any questions about usage, implementation specifics or find any bugs, browse to the <a href="https://groups.google.com/forum/#!forum/OpenF2">F2 Google Group</a> or <a href="https://github.com/OpenF2/F2/issues">Issues on GitHub</a>. As one might expect, there are <a href="#terms-of-use">terms and conditions of use</a>.</p>
 <section class="level3" id="data-formats">
 <h3>Data Formats</h3>
-<p>All web services can return data in either <code>XML</code> or <code>JSON</code> format, with an optional <code>JSONP</code> wrapper. The data returned will be the same regardless of the format requested. F2 web services follow the &quot;REST&quot; model for web services. In simple terms, REST is a formal description of the HTTP protocol. Accessing a &quot;REST&quot; web service, therefore is merely a matter of making a standard HTTP request to a defined resource.</p>
+<p>All F2 web services can return data in either <code>XML</code> or <code>JSON</code> format, with an optional <code>JSONP</code> wrapper. The data returned will be the same regardless of the format requested. F2 web services follow the &quot;<a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>&quot; model for web services. In simple terms, REST is a formal description of the HTTP protocol. Accessing a &quot;REST&quot; web service, therefore is merely a matter of making a standard HTTP request to a defined resource.</p>
 <p>Except where otherwise specified, all of the web services described in this document are accessed by an HTTP GET request. HTTP POST requests are reserved for methods that change data on the server, e.g. updating a user's profile. Each request consists of a URI, and a list of parameters. The URI consists of a hostname and base path, a method name, and an optional format specifier. The parameters are appended to the URI on the query string.</p>
 <p>Below is a sample request to a web service named <code>SampleRequest</code> in <code>XML</code> format.</p>
-<p><code>https://services.openf2.org/1.0/SampleRequest/xml?count=3&amp;echo=example</code></p>
+<p><code>https://services-openf2.markitqa.com/1.0/SampleRequest/xml?count=3&amp;echo=example</code></p>
 <p>The <code>/xml</code> format specifier in the above request could be safely omitted, as <code>XML</code> is the default format. Other formats supported at the current time are <code>JSON</code> (&quot;JavaScript Object Notation&quot;), and <code>JSONP</code>. <code>JSONP</code> requests all require an additional parameter, named <code>jsoncallback</code>.</p>
 <p>The <code>XML</code> response format consists of a sequence of elements representing <code>Type</code> names and <code>Property</code> names. <code>Type</code> names are used for the root node, and to identify individual items in a collection. An example <code>XML</code> representation of the <code>SampleResponse</code> object is shown below:</p>
 <pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;SampleResponse&gt;</span>
@@ -177,13 +179,13 @@ Core to any browser-based application, web services provide access to data sets 
 </section>
 <section class="level3" id="versioning">
 <h3>Versioning</h3>
-<p>The suite of F2 Web Services will be versioned as a collection and the endpoint URL will contain the version number. To adhere to industry standards, F2 will be maintained under the Semantic Versioning guidelines as much as possible.</p>
+<p>The suite of F2 Web Services will be versioned as a collection and the endpoint URL will contain the version number. To adhere to industry standards, F2 will be maintained under the <a href="http://semver.org/">Semantic Versioning guidelines</a> as much as possible.</p>
 <p>Releases will be numbered with the following format:</p>
-<p><code>https://services.openf2.org/&lt;major&gt;.&lt;minor&gt;/path/to/service</code></p>
-<p>For more information on SemVer, please visit <a href="http://semver.org/">SemVer.org</a>.</p>
+<p><code>https://services-openf2.markitqa.com/&lt;major&gt;.&lt;minor&gt;/path/to/web/service</code></p>
+<p>The current version of F2 Web Services is <strong>1.0</strong>.</p>
 </section>
-<section class="level3" id="forum">
-<h3>Forum</h3>
+<section class="level3" id="questions-issues">
+<h3>Questions &amp; Issues</h3>
 <p>Have a question? Ask it on the <a href="https://groups.google.com/forum/#!forum/OpenF2">F2 Google Group</a>.</p>
 <p><script type="text/javascript">
 <!--
@@ -191,41 +193,39 @@ h='&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#x67;&#114;&#x6f;&#x75;&#112;&#x73;&#46;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'OpenF2@googlegroups.com'+'<\/'+'a'+'>');
 // -->
 </script><noscript>&#x4f;&#112;&#x65;&#110;&#70;&#50;&#64;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#x67;&#114;&#x6f;&#x75;&#112;&#x73;&#46;&#x63;&#x6f;&#x6d;&#32;&#40;&#x6f;&#112;&#x65;&#110;&#102;&#50;&#32;&#x61;&#116;&#32;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#x67;&#114;&#x6f;&#x75;&#112;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;&#x29;</noscript></p>
-</section>
-<section class="level3" id="bug-tracking">
-<h3>Bug Tracking</h3>
 <p>To track bugs or issues, F2 is using <a href="https://github.com/OpenF2/F2/issues">Issues on GitHub</a>.</p>
 <hr>
 </section>
 </section>
 <section class="level2" id="f2-id">
 <h2>F2 ID</h2>
-<p>The F2 Identity service allows app developers to use a single identity convention for financial instruments. Knowing about and using a single ID as part of <a href="index.html#context">Context messages</a> will allow for simpler communication between Container and App Providers. The need for a common identifier is not new. The financial industry has yet to agree upon a universal symbol set, so we've integrated and cross-referenced a majority of ticker symbols. The F2 ID is sourced from a database of identifiers allowing for robust search of tradable instruments, regardless of issue classification scheme.</p>
-<p>This cross-referencing database developed by Markit On Demand, called XRef, enables users to execute symbol and company searches across countless numbers of data feeds to find exact matches quickly and intuitively. XRef allows companies the flexibility to use aggregated data sources while accommodating the range of names and symbols users access in a search. Presently, our Intersection System manages 750,000 cross-reference requests per minute during peak market hours.</p>
-<p>XRef allows both name and description based lookups for any underlying instrument. Lookup includes virtually any security identifier including: RIC, CUSIP, ISIN, NSIN, Sicovam, SEDOL, Valoren and WPK. The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.</p>
-<p>Instead of reinventing XRef technology itself, F2 is providing access to Markit On Demand's cross-reference database and offering the F2 ID as the universal instrument identifier the financial industry needs.</p>
+<p>The F2 Identity service allows app developers to use a single identity convention for financial instruments. Knowing about and using a single ID (<code>36276</code> instead of <code>AAPL</code>, for example) as part of <a href="index.html#context">Context messages</a> will allow for simpler communication between Container and App Providers.</p>
+<p><strong>The need for a common identifier is not new</strong>. The financial industry has yet to agree upon a universal symbol set, so having an integrated and cross-referenced source for a majority of ticker symbols is critical. The F2 ID is sourced from a database of identifiers allowing for robust search of tradable instruments, regardless of issue classification scheme.</p>
+<p>This cross-referencing database developed by <a href="http://www.markitondemand.com">Markit On Demand</a>, called &quot;XRef&quot;, enables users to execute symbol and company searches across countless numbers of data feeds to find exact matches quickly and intuitively. XRef allows companies the flexibility to use aggregated data sources while accommodating the range of names and symbols users access in a search. Presently, Markit On Demand's <em>Intersection System</em> manages 750,000 cross-reference requests per minute during peak market hours.</p>
+<p>XRef allows both name- and description-based lookups for any underlying instrument. The lookup includes virtually any security identifier including: <a href="http://en.wikipedia.org/wiki/Reuters_Instrument_Code">RIC</a>, <a href="http://en.wikipedia.org/wiki/CUSIP">CUSIP</a>, <a href="http://en.wikipedia.org/wiki/ISIN">ISIN</a>, <a href="http://en.wikipedia.org/wiki/NSIN">NSIN</a>, <a href="http://en.wikipedia.org/wiki/Sicovam">Sicovam</a>, <a href="http://en.wikipedia.org/wiki/SEDOL">SEDOL</a>, <a href="http://en.wikipedia.org/wiki/Valoren">Valoren</a> and WPK. The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.</p>
+<p><strong>Instead of reinventing XRef technology itself, F2 is providing access to Markit On Demand's cross-reference database and offering the <code>F2 ID</code> as the universal instrument identifier the financial industry needs.</strong> To make the use of this identifier easier, a <a href="#demo">brand-new web service is available</a> to lookup and retrieve the F2 ID.</p>
 <section class="level3" id="understanding-context">
 <h3>Understanding Context</h3>
-<p>Context is a term used to describe the state of an F2 container and its apps. At the same time, <a href="index.html#context">Context</a> is also the information passed from <a href="app-development.html#container-to-app-context">Container-to-App</a> or from <a href="app-development.html#app-to-app-context">App-to-App</a> or from <a href="app-development.html#app-to-container-context">App-to-Container</a>. In the examples shown within <a href="app-development.html">App Development</a>, two types of context are shown: symbol and trade ticket context. It is important to understand <a href="f2js-sdk.html">F2.js</a> allows in-browser messaging between third parties using a collection of arbitrary name-value pairs. <strong>For the first time, F2 is enforcing structure to Context messages—this time in the form of an F2 ID.</strong></p>
-<p>This example below demonstrates a simple Context message where a container broadcasts a <a href="../sdk/classes/F2.Events.html">symbol change event</a>. The Context message below contains a <code>symbol</code> property. Given the wide array of symbol identifiers in the financial industry and the inherent problem with using the Street symbol, neither <code>symbol</code> nor <code>AAPL</code> is very useful programmatically.</p>
+<p>Context is a term used to describe the state of an F2 container and its apps. At the same time, <a href="index.html#context">Context</a> is also the information passed from <a href="app-development.html#container-to-app-context">Container-to-App</a> or from <a href="app-development.html#app-to-app-context">App-to-App</a> or from <a href="app-development.html#app-to-container-context">App-to-Container</a>. In the examples shown within the <a href="app-development.html">App Development</a> section of this spec, two types of context are shown: symbol and trade ticket context. That is an example of in-browser messaging between two apps. Previously, the <a href="../sdk/classes/F2.Events.html">Event API</a> in <a href="f2js-sdk.html">F2.js</a> allows a collection of arbitrary name-value pairs to define the message. Currently, F2 enforces structure to Context messages—now in the form of an F2 ID.</p>
+<p>This example below demonstrates a simple Context message where a container broadcasts a <a href="../sdk/classes/F2.Events.html">symbol change event</a>. The following Context message contains a <code>symbol</code> property. Given the wide array of symbol identifiers in the financial industry and the inherent problem with using a Street symbol, neither <code>symbol</code> nor <code>AAPL</code> is very useful programmatically.</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">//define message</span>
 <span class="kw">var</span> contextMessage = {
     <span class="dt">symbol</span>: <span class="st">&quot;AAPL&quot;</span>
 }
 <span class="co">//broadcast event</span>
 <span class="kw">F2.Events</span>.<span class="fu">emit</span>(<span class="kw">F2.Constants.Events</span>.<span class="fu">CONTAINER</span>_<span class="fu">SYMBOL</span>_<span class="fu">CHANGE</span>, contextMessage);</code></pre>
-<p>In version 1.0.5, F2 is enforcing the name/value pair used as part of a symbol-based context message. Take this example, taking note of the name/value pair <code>SecurityID</code> and the integer representing AAPL, <code>36276</code>:</p>
+<p>As of version 1.0.6, F2 enforces the name/value pair used as part of a symbol-based context message. Review this example, taking note the name/value pair contains <code>SecurityID</code> and the integer representing &quot;AAPL&quot;, <code>36276</code>:</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">//define message</span>
 <span class="kw">var</span> contextMessage = {
     <span class="dt">SecurityID</span>: <span class="dv">36276</span>
 }
 <span class="co">//broadcast event</span>
 <span class="kw">F2.Events</span>.<span class="fu">emit</span>(<span class="kw">F2.Constants.Events</span>.<span class="fu">CONTAINER</span>_<span class="fu">SYMBOL</span>_<span class="fu">CHANGE</span>, contextMessage);</code></pre>
-<p><strong>The integer in the <code>SecurityID</code> field is the all-new F2 ID</strong>.</p>
+<p><strong>The integer in the <code>SecurityID</code> field is the all-new F2 ID</strong>. Try the <a href="#demo">demo below</a> by entering &quot;AAPL&quot; and choosing &quot;Street symbol&quot; from the dropdown.</p>
 </section>
 <section class="level3" id="methods">
 <h3>Methods</h3>
-<p>The linked documentation describes the methods available through the API, their input and output parameters, and the possible errors. A <code>?</code> indicates a value is optional (for the request) or may be null (in the response). A <code>[ ]</code> indicates that the value is an array containing 0 or more instances of the specified type.</p>
+<p>The linked documentation describes the methods available through the API, their input and output parameters, and the possible errors.</p>
 <p>
 <a class="btn btn-primary" href="https://services-openf2.markitqa.com/1.0/Lookup/doc/html" target="_blank">View complete F2 ID documentation</a>
 </p>
@@ -233,18 +233,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'OpenF2@googlegroups.com'+'
 </section>
 <section class="level3" id="demo">
 <h3>Demo</h3>
-<p>The purpose of this demonstration is to provide a quick look at the input and output of the API; it is not intended to serve as a reusable component for App Developers.</p>
+<p>The purpose of this demonstration is to provide a quick look at the input and output of the F2 ID Web Service; it is not intended to serve as a reusable component for App Developers.</p>
 <form class="form-horizontal form-search" id="demo-F2IDLookupForm" autocomplete="off">
     <div class="control-group">
         
-<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="symbol">a Street symbol</option> <option value="name">a full or partial company name</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
+<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="sedol">a SEDOL</option> <option value="symbol">a Street symbol</option> <option value="name">a full or partial company name</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
 <div class="help-block hide">
 Enter a search term <em>and</em> select a query type.
 </div>
     </div>
-
 </form>
-
 <div id="demo-F2IDLookupResults"></div>
 
 <hr>
@@ -274,9 +272,10 @@ Enter a search term <em>and</em> select a query type.
 <script src="./js/docs.js?1.0.6"></script>
 <script>
 	F2.extend('gitbranch', (function(){ return 'Feature-EntityLookup'; }));
-	F2.extend('DocsConfig', (function(){ 
+	F2.extend('Services', (function(){ 
 		return {
-			services: 'https://services-openf2.markitqa.com'
+			version: '1.0',
+			baseDomain: 'https://services-openf2.markitqa.com'
 		}; 
 	}));
 </script>

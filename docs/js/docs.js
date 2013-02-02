@@ -385,6 +385,7 @@ F2Docs.fn._demosF2IdLookupSubmit = function(){
 			return e + '?query=' + q;
 		},
 		handleResp = $.noop,
+		servicesConfig = F2.Services(),
 		_this = this
 	;
 
@@ -414,7 +415,7 @@ F2Docs.fn._demosF2IdLookupSubmit = function(){
 	$query.val(query);
 
 	//config
-	endpoint = F2.DocsConfig().services + '/1.0/Lookup/{type}/jsonp'.supplant({type:lookupType});
+	endpoint = servicesConfig.baseDomain + '/' +servicesConfig.version+ '/Lookup/{type}/jsonp'.supplant({type:lookupType});
 	template = ['<h4>Results</h4>',
 				'<p>Query: ',
 					'<code>{endpoint}</code> ',
