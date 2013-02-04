@@ -97,7 +97,7 @@ The F2 Identity service allows app developers to use a single identity conventio
 
 This cross-referencing database developed by [Markit On Demand](http://www.markitondemand.com), called "XRef", enables users to execute symbol and company searches across countless numbers of data feeds to find exact matches quickly and intuitively. XRef allows companies the flexibility to use aggregated data sources while accommodating the range of names and symbols users access in a search. Presently, Markit On Demand's _Intersection System_ manages 750,000 cross-reference requests per minute during peak market hours. 
 
-XRef allows both name- and description-based lookups for any underlying instrument. The lookup includes virtually any security identifier including: [RIC](http://en.wikipedia.org/wiki/Reuters_Instrument_Code), [CUSIP](http://en.wikipedia.org/wiki/CUSIP), [ISIN](http://en.wikipedia.org/wiki/ISIN), [NSIN](http://en.wikipedia.org/wiki/NSIN), [Sicovam](http://en.wikipedia.org/wiki/Sicovam), [SEDOL](http://en.wikipedia.org/wiki/SEDOL), [Valoren](http://en.wikipedia.org/wiki/Valoren) and WPK. The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.
+XRef allows both name- and description-based lookups for any underlying instrument. The lookup includes virtually any security identifier including: [RIC](http://en.wikipedia.org/wiki/Reuters_Instrument_Code), [CUSIP](http://en.wikipedia.org/wiki/CUSIP), [ISIN](http://en.wikipedia.org/wiki/ISIN), [NSIN](http://en.wikipedia.org/wiki/NSIN), [SEDOL](http://en.wikipedia.org/wiki/SEDOL), [Valoren](http://en.wikipedia.org/wiki/Valoren) and [WPK](http://en.wikipedia.org/wiki/Wertpapierkennnummer). The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.
 
 **Instead of reinventing XRef technology itself, F2 is providing access to Markit On Demand's cross-reference database and offering the `F2 ID` as the universal instrument identifier the financial industry needs.** To make the use of this identifier easier, a [brand-new web service is available](#demo) to lookup and retrieve the F2 ID.
 
@@ -146,8 +146,9 @@ The purpose of this demonstration is to provide a quick look at the input and ou
 		<select class="span3">
 	  		<option value="#">a what?</option>
 	  		<option value="isin">an ISIN</option>
+	  		<option value="cusip">a CUSIP</option>
 	  		<option value="sedol">a SEDOL</option>
-	  		<option value="symbol">a Street symbol</option>
+	  		<option value="symbol">a ticker symbol</option>
 	  		<option value="name">a full or partial company name</option>
 		</select>
 		<button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>

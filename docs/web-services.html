@@ -3,7 +3,7 @@
 <head>
   <title>F2 - F2 Web Services</title>
   <meta charset="utf-8">
-  <meta name="dcterms.date" content="1 February 2013">
+  <meta name="dcterms.date" content="4 February 2013">
   <meta name="gitbranch" content="Feature-EntityLookup">
   <meta name="description" content="F2: The Open Financial Framework. An open framework created for the financial services industry.">
   <meta name="keywords" content="F2, Open F2, Open Financial Framework, Markit, Markit On Demand, MOD, web, web framework, apps, context, container, Hub">
@@ -202,7 +202,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'OpenF2@googlegroups.com'+'
 <p>The F2 Identity service allows app developers to use a single identity convention for financial instruments. Knowing about and using a single ID (<code>36276</code> instead of <code>AAPL</code>, for example) as part of <a href="index.html#context">Context messages</a> will allow for simpler communication between Container and App Providers.</p>
 <p><strong>The need for a common identifier is not new</strong>. The financial industry has yet to agree upon a universal symbol set, so having an integrated and cross-referenced source for a majority of ticker symbols is critical. The F2 ID is sourced from a database of identifiers allowing for robust search of tradable instruments, regardless of issue classification scheme.</p>
 <p>This cross-referencing database developed by <a href="http://www.markitondemand.com">Markit On Demand</a>, called &quot;XRef&quot;, enables users to execute symbol and company searches across countless numbers of data feeds to find exact matches quickly and intuitively. XRef allows companies the flexibility to use aggregated data sources while accommodating the range of names and symbols users access in a search. Presently, Markit On Demand's <em>Intersection System</em> manages 750,000 cross-reference requests per minute during peak market hours.</p>
-<p>XRef allows both name- and description-based lookups for any underlying instrument. The lookup includes virtually any security identifier including: <a href="http://en.wikipedia.org/wiki/Reuters_Instrument_Code">RIC</a>, <a href="http://en.wikipedia.org/wiki/CUSIP">CUSIP</a>, <a href="http://en.wikipedia.org/wiki/ISIN">ISIN</a>, <a href="http://en.wikipedia.org/wiki/NSIN">NSIN</a>, <a href="http://en.wikipedia.org/wiki/Sicovam">Sicovam</a>, <a href="http://en.wikipedia.org/wiki/SEDOL">SEDOL</a>, <a href="http://en.wikipedia.org/wiki/Valoren">Valoren</a> and WPK. The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.</p>
+<p>XRef allows both name- and description-based lookups for any underlying instrument. The lookup includes virtually any security identifier including: <a href="http://en.wikipedia.org/wiki/Reuters_Instrument_Code">RIC</a>, <a href="http://en.wikipedia.org/wiki/CUSIP">CUSIP</a>, <a href="http://en.wikipedia.org/wiki/ISIN">ISIN</a>, <a href="http://en.wikipedia.org/wiki/NSIN">NSIN</a>, <a href="http://en.wikipedia.org/wiki/SEDOL">SEDOL</a>, <a href="http://en.wikipedia.org/wiki/Valoren">Valoren</a> and <a href="http://en.wikipedia.org/wiki/Wertpapierkennnummer">WPK</a>. The coverage universe is global fixed income, equity, futures, options and benchmarks and industry classifications.</p>
 <p><strong>Instead of reinventing XRef technology itself, F2 is providing access to Markit On Demand's cross-reference database and offering the <code>F2 ID</code> as the universal instrument identifier the financial industry needs.</strong> To make the use of this identifier easier, a <a href="#demo">brand-new web service is available</a> to lookup and retrieve the F2 ID.</p>
 <section class="level3" id="understanding-context">
 <h3>Understanding Context</h3>
@@ -237,7 +237,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'OpenF2@googlegroups.com'+'
 <form class="form-horizontal form-search" id="demo-F2IDLookupForm" autocomplete="off">
     <div class="control-group">
         
-<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="sedol">a SEDOL</option> <option value="symbol">a Street symbol</option> <option value="name">a full or partial company name</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
+<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="cusip">a CUSIP</option> <option value="sedol">a SEDOL</option> <option value="symbol">a ticker symbol</option> <option value="name">a full or partial company name</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
 <div class="help-block hide">
 Enter a search term <em>and</em> select a query type.
 </div>
@@ -260,7 +260,7 @@ Enter a search term <em>and</em> select a query type.
 
 	<footer>
 		<p class="pull-left"><small><strong>F2&nbsp;&nbsp;|&nbsp;&nbsp;The Open Financial Framework</strong><br><a href="mailto:info@openf2.org">info@openf2.org</a></small></p>
-		<p class="pull-right"><small>F2 is maintained by <a href="http://www.markitondemand.com/">Markit On Demand</a> on <a href="https://github.com/OpenF2/F2">GitHub</a>.<br>Code licensed under the <a href="https://github.com/OpenF2/F2#copyright-and-license">MIT License</a>.<br> Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br><em>Specification 1.0.6, 1 February 2013</em></small></p>
+		<p class="pull-right"><small>F2 is maintained by <a href="http://www.markitondemand.com/">Markit On Demand</a> on <a href="https://github.com/OpenF2/F2">GitHub</a>.<br>Code licensed under the <a href="https://github.com/OpenF2/F2#copyright-and-license">MIT License</a>.<br> Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br><em>Specification 1.0.6, 4 February 2013</em></small></p>
 	</footer>
 
 </div><!--/.container-->
