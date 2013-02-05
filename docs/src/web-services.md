@@ -135,7 +135,26 @@ The linked documentation describes the methods available through the API, their 
 
 <p><a class="btn btn-primary" href="{{services.baseDomain}}/{{services.version}}/Lookup/doc/html" target="_blank">View complete F2 ID documentation</a></p>
 
-### Demo
+### Response
+
+Take the following as an example API response when a search is performed using the ISIN for Microsoft. The inline JavaScript comments define each property in the response, which is based on the field definitions in the [FIX Protocol](http://fixprotocol.org/).
+
+```javascript
+{
+    "Issuer": "Microsoft Corp",     //company name for verification 
+    "SecurityID": 205778,           //F2 ID, FIX tag #48
+    "SecurityIDSource": 1012,       //FIX value for SecurityID source
+    "Parties": [                    
+        {
+            "PartyID": "XNAS",      //MIC code (ISO 10383)
+            "PartyIDSource": "G",   //FIX value for PartyID (MIC)
+            "PartyRole": 22         //FIX party role (Exchange)
+        }
+    ]
+}
+```
+
+### F2 ID Demo
 
 The purpose of this demonstration is to provide a quick look at the input and output of the F2 ID Web Service; it is not intended to serve as a reusable component for App Developers.
 
@@ -148,8 +167,6 @@ The purpose of this demonstration is to provide a quick look at the input and ou
 	  		<option value="isin">an ISIN</option>
 	  		<option value="cusip">a CUSIP</option>
 	  		<option value="sedol">a SEDOL</option>
-	  		<option value="symbol">a ticker symbol</option>
-	  		<option value="name">a full or partial company name</option>
 		</select>
 		<button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
 		<div class="help-block hide">Enter a search term _and_ select a query type.</div>

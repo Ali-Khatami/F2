@@ -3,8 +3,8 @@
 <head>
   <title>F2 - F2 Web Services</title>
   <meta charset="utf-8">
-  <meta name="dcterms.date" content="4 February 2013">
-  <meta name="gitbranch" content="Feature-EntityLookup">
+  <meta name="dcterms.date" content="5 February 2013">
+  <meta name="gitbranch" content="XRef">
   <meta name="description" content="F2: The Open Financial Framework. An open framework created for the financial services industry.">
   <meta name="keywords" content="F2, Open F2, Open Financial Framework, Markit, Markit On Demand, MOD, web, web framework, apps, context, container, Hub">
   <meta name="robots" content="all, index, follow" />
@@ -17,7 +17,7 @@
   <script src="./js/respond.min.js"></script>
   
   <link href="./css/prettify.css" rel="stylesheet">
-  <link href="./css/F2.Docs.css?1.0.6" rel="stylesheet">
+  <link href="./css/F2.Docs.css?1.1" rel="stylesheet">
   
   <link rel="icon" href="./img/favicon-32px.png" type="image/png"/>
   <link rel="apple-touch-icon" sizes="57x57" href="./img/touch-icon-57.png" />
@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/touch-icon-144.png" />
   
   <script type="text/javascript">
-  	if ('Feature-EntityLookup' === 'master'){
+  	if ('XRef' === 'master'){
   		var _gaq = _gaq || [];
   		_gaq.push(['_setAccount', 'UA-35230380-1']);
   		_gaq.push(['_setDomainName', 'openf2.org']);
@@ -71,7 +71,7 @@
             <li class="divider-vertical"></li>
             <li><a href="https://developer.openf2.org">Developer</a></li>
             <li class="divider-vertical"></li>
-            <li><a href="http://openf2.blogspot.com" target="_blank">Blog</a></li>
+            <li><a href="http://blog.openf2.org" target="_blank">Blog</a></li>
             <li class="divider-vertical"></li>
             <li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.0.3</span></a></li>
             <li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.0.3)</a></li>
@@ -231,13 +231,29 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'OpenF2@googlegroups.com'+'
 </p>
 
 </section>
-<section class="level3" id="demo">
-<h3>Demo</h3>
+<section class="level3" id="response">
+<h3>Response</h3>
+<p>Take the following as an example API response when a search is performed using the ISIN for Microsoft. The inline JavaScript comments define each property in the response, which is based on the field definitions in the <a href="http://fixprotocol.org/">FIX Protocol</a>.</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">{
+    <span class="st">&quot;Issuer&quot;</span>: <span class="st">&quot;Microsoft Corp&quot;</span>,     <span class="co">//company name for verification </span>
+    <span class="st">&quot;SecurityID&quot;</span>: <span class="dv">205778</span>,           <span class="co">//F2 ID, FIX tag #48</span>
+    <span class="st">&quot;SecurityIDSource&quot;</span>: <span class="dv">1012</span>,       <span class="co">//FIX value for SecurityID source</span>
+    <span class="st">&quot;Parties&quot;</span>: [                    
+        {
+            <span class="st">&quot;PartyID&quot;</span>: <span class="st">&quot;XNAS&quot;</span>,      <span class="co">//MIC code (ISO 10383)</span>
+            <span class="st">&quot;PartyIDSource&quot;</span>: <span class="st">&quot;G&quot;</span>,   <span class="co">//FIX value for PartyID (MIC)</span>
+            <span class="st">&quot;PartyRole&quot;</span>: <span class="dv">22</span>         <span class="co">//FIX party role (Exchange)</span>
+        }
+    ]
+}</code></pre>
+</section>
+<section class="level3" id="f2-id-demo">
+<h3>F2 ID Demo</h3>
 <p>The purpose of this demonstration is to provide a quick look at the input and output of the F2 ID Web Service; it is not intended to serve as a reusable component for App Developers.</p>
 <form class="form-horizontal form-search" id="demo-F2IDLookupForm" autocomplete="off">
     <div class="control-group">
         
-<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="cusip">a CUSIP</option> <option value="sedol">a SEDOL</option> <option value="symbol">a ticker symbol</option> <option value="name">a full or partial company name</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
+<input type="text" class="span2" placeholder="Search term" > <span class="help-inline">is</span> <select class="span3"> <option value="#">a what?</option> <option value="isin">an ISIN</option> <option value="cusip">a CUSIP</option> <option value="sedol">a SEDOL</option> </select> <button type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
 <div class="help-block hide">
 Enter a search term <em>and</em> select a query type.
 </div>
@@ -260,7 +276,7 @@ Enter a search term <em>and</em> select a query type.
 
 	<footer>
 		<p class="pull-left"><small><strong>F2&nbsp;&nbsp;|&nbsp;&nbsp;The Open Financial Framework</strong><br><a href="mailto:info@openf2.org">info@openf2.org</a></small></p>
-		<p class="pull-right"><small>F2 is maintained by <a href="http://www.markitondemand.com/">Markit On Demand</a> on <a href="https://github.com/OpenF2/F2">GitHub</a>.<br>Code licensed under the <a href="https://github.com/OpenF2/F2#copyright-and-license">MIT License</a>.<br> Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br><em>Specification 1.0.6, 4 February 2013</em></small></p>
+		<p class="pull-right"><small>F2 is maintained by <a href="http://www.markitondemand.com/">Markit On Demand</a> on <a href="https://github.com/OpenF2/F2">GitHub</a>.<br>Code licensed under the <a href="https://github.com/OpenF2/F2#copyright-and-license">MIT License</a>.<br> Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br><em>Specification 1.1, 5 February 2013</em></small></p>
 	</footer>
 
 </div><!--/.container-->
@@ -269,9 +285,9 @@ Enter a search term <em>and</em> select a query type.
 <script src="./js/bootstrap.min.2.1.1.js"></script>
 <script src="./js/prettify.js?v2"></script>
 <script src="./js/f2.js?1.0.3"></script>
-<script src="./js/docs.js?1.0.6"></script>
+<script src="./js/docs.js?1.1"></script>
 <script>
-	F2.extend('gitbranch', (function(){ return 'Feature-EntityLookup'; }));
+	F2.extend('gitbranch', (function(){ return 'XRef'; }));
 	F2.extend('Services', (function(){ 
 		return {
 			version: '1.0',
