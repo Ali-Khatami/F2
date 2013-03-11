@@ -5,7 +5,7 @@
 	}
 
 /*!
- * F2 v1.1.0
+ * F2 v1.1.1
  * Copyright (c) 2013 Markit On Demand, Inc. http://www.openf2.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -191,7 +191,7 @@ F2 = {
 	 * @method version
 	 * @return {string} F2 version number
 	 */
-	version: function() { return "1.1.0"; }
+	version: function() { return "1.1.1"; }
 };
 
 
@@ -1934,6 +1934,113 @@ F2.extend('', (function(){
 		return true;
 	};
 
+	/**
+     * Parses URI
+     * @method _parseURI
+     * @private
+     * @param {url} url The URL to parse
+     * @returns {string} Parsed URL
+     * Source: https://gist.github.com/Yaffle/1088850
+     * Tests: http://skew.org/uri/uri_tests.html
+     */
+    var _parseURI = function(url) {
+        var m = String(url).replace(/^\s+|\s+$/g, '').match(/^([^:\/?#]+:)?(\/\/(?:[^:@]*(?::[^:@]*)?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);
+        // authority = '//' + user + ':' + pass '@' + hostname + ':' port
+        return (m ? {
+            href     : m[0] || '',
+            protocol : m[1] || '',
+            authority: m[2] || '',
+            host     : m[3] || '',
+            hostname : m[4] || '',
+            port     : m[5] || '',
+            pathname : m[6] || '',
+            search   : m[7] || '',
+            hash     : m[8] || ''
+            } : null);
+    }
+ 
+    /**
+     * Abosolutizes a relative URL
+     * @method _absolutizeURI
+     * @private
+     * @param {base} base  
+     * @param {href} href
+     * @returns {string} URL
+     * Source: https://gist.github.com/Yaffle/1088850
+     * Tests: http://skew.org/uri/uri_tests.html
+     */
+    var _absolutizeURI = function(base, href) {// RFC 3986
+ 
+        function removeDotSegments(input) {
+            var output = [];
+            input.replace(/^(\.\.?(\/|$))+/, '')
+            .replace(/\/(\.(\/|$))+/g, '/')
+            .replace(/\/\.\.$/, '/../')
+            .replace(/\/?[^\/]*/g, function (p) {
+                if (p === '/..') {
+                    output.pop();
+                } else {
+                    output.push(p);
+                }
+            });
+            return output.join('').replace(/^\//, input.charAt(0) === '/' ? '/' : '');
+        }
+
+        href = _parseURI(href || '');
+        base = _parseURI(base || '');
+
+        return !href || !base ? null : (href.protocol || base.protocol) +
+            (href.protocol || href.authority ? href.authority : base.authority) +
+            removeDotSegments(href.protocol || href.authority || href.pathname.charAt(0) === '/' ? href.pathname : (href.pathname ? ((base.authority && !base.pathname ? '/' : '') + base.pathname.slice(0, base.pathname.lastIndexOf('/') + 1) + href.pathname) : base.pathname)) +
+            (href.protocol || href.authority || href.pathname ? href.search : (href.search || base.search)) +
+            href.hash;
+    }
+
+    /**
+     * Tests a URL to see if it's on the same domain (local) or not
+     * @method _isLocalRequest
+     * @private
+     * @param {url} url
+     * @returns {bool} Whether the URL is local or not
+     * Derived from: https://github.com/jquery/jquery/blob/master/src/ajax.js
+     */
+    var _isLocalRequest = function(url){
+        var rurl = /^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,
+            url = url.toLowerCase(),
+            parts = rurl.exec( url ),
+            ajaxLocation,
+            ajaxLocParts;
+
+        try {
+            ajaxLocation = location.href;
+        } catch( e ) {
+            // Use the href attribute of an A element
+            // since IE will modify it given document.location
+            ajaxLocation = document.createElement( "a" );
+            ajaxLocation.href = "";
+            ajaxLocation = ajaxLocation.href;
+        }
+
+        ajaxLocation = ajaxLocation.toLowerCase();
+
+        //uh oh, the url must be relative
+        //make it fully qualified and re-regex url
+        if (!parts){
+            url = _absolutizeURI(ajaxLocation,url).toLowerCase();
+            parts = rurl.exec( url );
+        }
+
+        // Segment location into parts
+        ajaxLocParts = rurl.exec( ajaxLocation ) || [];
+
+        //do hostname and protocol of manifest URL match location.href? (a "local" request on the same domain)
+        var matched = !!( parts && ajaxLocParts && (parts[ 1 ] == ajaxLocParts[ 1 ] && parts[ 2 ] == ajaxLocParts[ 2 ]) );
+
+        //console.info("local?", matched, url)
+
+        return matched;
+    }
+
 	return {
 		/**
 		 * Gets the current list of apps in the container
@@ -2086,6 +2193,7 @@ F2.extend('', (function(){
 
 						jQuery.ajax({
 							url:req.url,
+							type: (_isLocalRequest(req.url)) ? 'POST' : 'GET',
 							data:{
 								params:F2.stringify(req.apps, F2.appConfigReplacer)
 							},

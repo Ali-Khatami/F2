@@ -1461,7 +1461,78 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 292,
+            "line": 291,
+            "description": "Parses URI",
+            "itemtype": "method",
+            "name": "_parseURI",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "The URL to parse"
+                }
+            ],
+            "return": {
+                "description": "string\nSource: https://gist.github.com/Yaffle/1088850\nTests: http://skew.org/uri/uri_tests.html",
+                "type": "Parsed URL"
+            },
+            "class": "F2",
+            "module": "f2"
+        },
+        {
+            "file": "sdk/src/container.js",
+            "line": 316,
+            "description": "Abosolutizes a relative URL",
+            "itemtype": "method",
+            "name": "_absolutizeURI",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "base",
+                    "description": "",
+                    "type": "e.g., location.href"
+                },
+                {
+                    "name": "href",
+                    "description": "",
+                    "type": "URL to absolutize"
+                }
+            ],
+            "return": {
+                "description": "URL\nSource: https://gist.github.com/Yaffle/1088850\nTests: http://skew.org/uri/uri_tests.html",
+                "type": "String"
+            },
+            "class": "F2",
+            "module": "f2"
+        },
+        {
+            "file": "sdk/src/container.js",
+            "line": 353,
+            "description": "Tests a URL to see if it's on the same domain (local) or not",
+            "itemtype": "method",
+            "name": "_isLocalRequest",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "URL to test"
+                }
+            ],
+            "return": {
+                "description": "Whether the URL is local or not\nDerived from: https://github.com/jquery/jquery/blob/master/src/ajax.js",
+                "type": "Bool"
+            },
+            "class": "F2",
+            "module": "f2"
+        },
+        {
+            "file": "sdk/src/container.js",
+            "line": 399,
             "description": "Gets the current list of apps in the container",
             "itemtype": "method",
             "name": "getContainerState",
@@ -1474,7 +1545,7 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 307,
+            "line": 414,
             "description": "Initializes the container. This method must be called before performing\nany other actions in the container.",
             "itemtype": "method",
             "name": "init",
@@ -1490,7 +1561,7 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 327,
+            "line": 434,
             "description": "Has the container been init?",
             "itemtype": "method",
             "name": "isInit",
@@ -1503,7 +1574,7 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 333,
+            "line": 440,
             "description": "Begins the loading process for all apps. The app will\nbe passed the {{#crossLink \"F2.AppConfig\"}}{{/crossLink}} object which will\ncontain the app's unique instanceId within the container. Optionally, the\n{{#crossLink \"F2.AppManifest\"}}{{/crossLink}} can be passed in and those\nassets will be used instead of making a request.",
             "itemtype": "method",
             "name": "registerApps",
@@ -1525,7 +1596,7 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 470,
+            "line": 578,
             "description": "Removes all apps from the container",
             "itemtype": "method",
             "name": "removeAllApps",
@@ -1534,7 +1605,7 @@
         },
         {
             "file": "sdk/src/container.js",
-            "line": 485,
+            "line": 593,
             "description": "Removes an app from the container",
             "itemtype": "method",
             "name": "removeApp",

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>F2 - F2</title>
 	<meta name="dcterms.date" content="7 March 2013">
-	<meta name="gitbranch" content="master">
+	<meta name="gitbranch" content="issue41">
 	<meta name="description" content="F2: The Open Financial Framework. An open framework created for the financial services industry.">
 	<meta name="keywords" content="F2, Open F2, Open Financial Framework, Markit, Markit On Demand, MOD, web, web framework, apps, context, container, Hub">
 	<meta name="robots" content="all, index, follow" />
@@ -17,7 +17,7 @@
 	<script src="..&#x2F;../js/respond.min.js"></script>
 	
 	<link href="..&#x2F;../css/prettify.css" rel="stylesheet">
-	<link href="..&#x2F;../css/F2.Sdk.css?1.1.0" rel="stylesheet">
+	<link href="..&#x2F;../css/F2.Sdk.css?1.1.1" rel="stylesheet">
 
 	<link rel="icon" href="..&#x2F;../img/favicon-32px.png" type="image/png"/>
 	<link rel="apple-touch-icon" sizes="57x57" href="..&#x2F;../img/touch-icon-iphone-57.png" />
@@ -25,7 +25,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="..&#x2F;../img/touch-icon-iphone-114.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="..&#x2F;../img/touch-icon-ipad-144.png" />
 	<script type="text/javascript">
-		if ('master' === 'master'){
+		if ('issue41' === 'master'){
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-35230380-1']);
 			_gaq.push(['_setDomainName', 'openf2.org']);
@@ -74,8 +74,8 @@
 							<li class="divider-vertical"></li>
 							<li><a href="http://blog.openf2.org" target="_blank">Blog</a></li>
             				<li class="divider-vertical"></li>
-							<li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.1.0</span></a></li>
-							<li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.1.0)</a></li>
+							<li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.1.1</span></a></li>
+							<li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.1.1)</a></li>
 						</ul>
 					</div>
 				</div>
@@ -267,6 +267,34 @@
 					
 					<tr class=" private">
 						<td class="name">
+							<a href="#methods-_absolutizeURI">
+								_absolutizeURI
+								<span class="paren">(</span>
+								
+									<ul class="params commas">
+										
+										<li>
+											
+												base
+											
+										</li>
+										
+										<li>
+											
+												href
+											
+										</li>
+										
+									</ul>
+								
+								<span class="paren">)</span>
+							</a>
+						</td>
+						<td><p>Abosolutizes a relative URL</p></td>
+					</tr>
+					
+					<tr class=" private">
+						<td class="name">
 							<a href="#methods-_afterAppRender">
 								_afterAppRender
 								<span class="paren">(</span>
@@ -400,6 +428,50 @@ loading</p></td>
 							</a>
 						</td>
 						<td><p>Has the container been init?</p></td>
+					</tr>
+					
+					<tr class=" private">
+						<td class="name">
+							<a href="#methods-_isLocalRequest">
+								_isLocalRequest
+								<span class="paren">(</span>
+								
+									<ul class="params commas">
+										
+										<li>
+											
+												url
+											
+										</li>
+										
+									</ul>
+								
+								<span class="paren">)</span>
+							</a>
+						</td>
+						<td><p>Tests a URL to see if it's on the same domain (local) or not</p></td>
+					</tr>
+					
+					<tr class=" private">
+						<td class="name">
+							<a href="#methods-_parseURI">
+								_parseURI
+								<span class="paren">(</span>
+								
+									<ul class="params commas">
+										
+										<li>
+											
+												url
+											
+										</li>
+										
+									</ul>
+								
+								<span class="paren">)</span>
+							</a>
+						</td>
+						<td><p>Parses URI</p></td>
 					</tr>
 					
 					<tr class=" private">
@@ -826,6 +898,133 @@ automatically by F2.</p></td>
 	<!-- METHODS TAB -->
 	
 	<div id="methods" class="tab-pane">
+		
+		<section id="methods-_absolutizeURI" class="level2  private">
+	<h3>
+		_absolutizeURI
+		<span class="paren">(</span>
+		
+			<ul class="params commas">
+				
+				<li>
+					
+						base
+					
+				</li>
+				
+				<li>
+					
+						href
+					
+				</li>
+				
+			</ul>
+		
+		<span class="paren">)</span>
+
+		
+
+		
+			<span class="label private">private</span>
+		
+
+		
+
+		
+
+		
+
+		
+	</h3>
+
+	<p>
+		<p>Abosolutizes a relative URL</p>
+	</p>	
+
+	<div class="well well-small">
+		<dl class="dl-horizontal">
+			
+				
+					
+				
+			
+			
+			
+				<dt>Defined in</dt>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l316"><code>sdk&#x2F;src&#x2F;container.js:316</code></a></dd>
+			
+
+			
+
+			
+		</dl>
+	</div>
+
+	
+		<div class="params">
+			<h4>Parameters:</h4>
+
+			<ul class="params-list">
+				
+				<li class="param">
+					
+						<code class="param-name">base</code>
+						<span class="label type">e.g., location.href</span>
+					
+
+					
+
+					<p>
+						 
+					</p>
+
+					
+				</li>
+				
+				<li class="param">
+					
+						<code class="param-name">href</code>
+						<span class="label type">URL to absolutize</span>
+					
+
+					
+
+					<p>
+						 
+					</p>
+
+					
+				</li>
+				
+			</ul>
+		</div>
+	
+
+	
+		<div class="returns">
+			<h4>Returns:</h4>
+
+			<div class="returns-description">
+				
+					
+						<span class="label type">String</span>:
+					
+					URL
+Source: https://gist.github.com/Yaffle/1088850
+Tests: http://skew.org/uri/uri_tests.html
+				
+			</div>
+		</div>
+	
+
+	
+
+	
+	<div class="backToTop">
+		<a href="javascript:;">Back to top</a>
+	</div>
+	
+</section>
 		
 		<section id="methods-_afterAppRender" class="level2  private">
 	<h3>
@@ -1447,6 +1646,217 @@ loading</p>
 	
 </section>
 		
+		<section id="methods-_isLocalRequest" class="level2  private">
+	<h3>
+		_isLocalRequest
+		<span class="paren">(</span>
+		
+			<ul class="params commas">
+				
+				<li>
+					
+						url
+					
+				</li>
+				
+			</ul>
+		
+		<span class="paren">)</span>
+
+		
+
+		
+			<span class="label private">private</span>
+		
+
+		
+
+		
+
+		
+
+		
+	</h3>
+
+	<p>
+		<p>Tests a URL to see if it's on the same domain (local) or not</p>
+	</p>	
+
+	<div class="well well-small">
+		<dl class="dl-horizontal">
+			
+				
+					
+				
+			
+			
+			
+				<dt>Defined in</dt>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l353"><code>sdk&#x2F;src&#x2F;container.js:353</code></a></dd>
+			
+
+			
+
+			
+		</dl>
+	</div>
+
+	
+		<div class="params">
+			<h4>Parameters:</h4>
+
+			<ul class="params-list">
+				
+				<li class="param">
+					
+						<code class="param-name">url</code>
+						<span class="label type">URL to test</span>
+					
+
+					
+
+					<p>
+						 
+					</p>
+
+					
+				</li>
+				
+			</ul>
+		</div>
+	
+
+	
+		<div class="returns">
+			<h4>Returns:</h4>
+
+			<div class="returns-description">
+				
+					
+						<span class="label type">Bool</span>:
+					
+					Whether the URL is local or not
+Derived from: https://github.com/jquery/jquery/blob/master/src/ajax.js
+				
+			</div>
+		</div>
+	
+
+	
+
+	
+	<div class="backToTop">
+		<a href="javascript:;">Back to top</a>
+	</div>
+	
+</section>
+		
+		<section id="methods-_parseURI" class="level2  private">
+	<h3>
+		_parseURI
+		<span class="paren">(</span>
+		
+			<ul class="params commas">
+				
+				<li>
+					
+						url
+					
+				</li>
+				
+			</ul>
+		
+		<span class="paren">)</span>
+
+		
+
+		
+			<span class="label private">private</span>
+		
+
+		
+
+		
+
+		
+
+		
+	</h3>
+
+	<p>
+		<p>Parses URI</p>
+	</p>	
+
+	<div class="well well-small">
+		<dl class="dl-horizontal">
+			
+				
+					
+				
+			
+			
+			
+				<dt>Defined in</dt>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l291"><code>sdk&#x2F;src&#x2F;container.js:291</code></a></dd>
+			
+
+			
+
+			
+		</dl>
+	</div>
+
+	
+		<div class="params">
+			<h4>Parameters:</h4>
+
+			<ul class="params-list">
+				
+				<li class="param">
+					
+						<code class="param-name">url</code>
+						<span class="label type">The URL to parse</span>
+					
+
+					
+
+					<p>
+						 
+					</p>
+
+					
+				</li>
+				
+			</ul>
+		</div>
+	
+
+	
+		<div class="returns">
+			<h4>Returns:</h4>
+
+			<div class="returns-description">
+				
+					
+						<span class="label type">Parsed URL</span>:
+					
+					string
+Source: https://gist.github.com/Yaffle/1088850
+Tests: http://skew.org/uri/uri_tests.html
+				
+			</div>
+		</div>
+	
+
+	
+
+	
+	<div class="backToTop">
+		<a href="javascript:;">Back to top</a>
+	</div>
+	
+</section>
+		
 		<section id="methods-_validateApp" class="level2  private">
 	<h3>
 		_validateApp
@@ -1788,7 +2198,7 @@ add properties to the F2 namespace directly.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l292"><code>sdk&#x2F;src&#x2F;container.js:292</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l399"><code>sdk&#x2F;src&#x2F;container.js:399</code></a></dd>
 			
 
 			
@@ -2060,7 +2470,7 @@ any other actions in the container.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l307"><code>sdk&#x2F;src&#x2F;container.js:307</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l414"><code>sdk&#x2F;src&#x2F;container.js:414</code></a></dd>
 			
 
 			
@@ -2139,7 +2549,7 @@ any other actions in the container.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l327"><code>sdk&#x2F;src&#x2F;container.js:327</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l434"><code>sdk&#x2F;src&#x2F;container.js:434</code></a></dd>
 			
 
 			
@@ -2670,7 +3080,7 @@ assets will be used instead of making a request.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l333"><code>sdk&#x2F;src&#x2F;container.js:333</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l440"><code>sdk&#x2F;src&#x2F;container.js:440</code></a></dd>
 			
 
 			
@@ -2771,7 +3181,7 @@ passed down to the client.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l470"><code>sdk&#x2F;src&#x2F;container.js:470</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l578"><code>sdk&#x2F;src&#x2F;container.js:578</code></a></dd>
 			
 
 			
@@ -2837,7 +3247,7 @@ passed down to the client.</p>
 			
 			
 				<dt>Defined in</dt>
-				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l485"><code>sdk&#x2F;src&#x2F;container.js:485</code></a></dd>
+				<dd><a href="..&#x2F;files&#x2F;sdk_src_container.js.html#l593"><code>sdk&#x2F;src&#x2F;container.js:593</code></a></dd>
 			
 
 			
@@ -3226,7 +3636,7 @@ automatically by F2.</p>
 <script src="..&#x2F;../js/f2.js?"></script>
 <script type="text/javascript">
 	window.prettyPrint && prettyPrint();
-	F2.extend('gitbranch', (function(){ return 'master'; }));
+	F2.extend('gitbranch', (function(){ return 'issue41'; }));
 </script>
 <script type="text/javascript">
 	if (F2.gitbranch() === 'master'){

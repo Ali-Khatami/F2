@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>F2 - sdk&#x2F;src&#x2F;container.js</title>
 	<meta name="dcterms.date" content="7 March 2013">
-	<meta name="gitbranch" content="master">
+	<meta name="gitbranch" content="issue41">
 	<meta name="description" content="F2: The Open Financial Framework. An open framework created for the financial services industry.">
 	<meta name="keywords" content="F2, Open F2, Open Financial Framework, Markit, Markit On Demand, MOD, web, web framework, apps, context, container, Hub">
 	<meta name="robots" content="all, index, follow" />
@@ -17,7 +17,7 @@
 	<script src="..&#x2F;../js/respond.min.js"></script>
 	
 	<link href="..&#x2F;../css/prettify.css" rel="stylesheet">
-	<link href="..&#x2F;../css/F2.Sdk.css?1.1.0" rel="stylesheet">
+	<link href="..&#x2F;../css/F2.Sdk.css?1.1.1" rel="stylesheet">
 
 	<link rel="icon" href="..&#x2F;../img/favicon-32px.png" type="image/png"/>
 	<link rel="apple-touch-icon" sizes="57x57" href="..&#x2F;../img/touch-icon-iphone-57.png" />
@@ -25,7 +25,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="..&#x2F;../img/touch-icon-iphone-114.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="..&#x2F;../img/touch-icon-ipad-144.png" />
 	<script type="text/javascript">
-		if ('master' === 'master'){
+		if ('issue41' === 'master'){
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-35230380-1']);
 			_gaq.push(['_setDomainName', 'openf2.org']);
@@ -74,8 +74,8 @@
 							<li class="divider-vertical"></li>
 							<li><a href="http://blog.openf2.org" target="_blank">Blog</a></li>
             				<li class="divider-vertical"></li>
-							<li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.1.0</span></a></li>
-							<li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.1.0)</a></li>
+							<li class="ghWrap"><a class="gitHubLink" href="https://github.com/OpenF2/F2/"><strong>VIEW </strong><span class="onDecoration">ON</span><strong> GITHUB</strong><span class="F2VersionIndicator">v 1.1.1</span></a></li>
+							<li class="ghWrapResp"><a href="https://github.com/OpenF2/F2/">View on GitHub (v 1.1.1)</a></li>
 						</ul>
 					</div>
 				</div>
@@ -507,6 +507,113 @@ F2.extend(&#x27;&#x27;, (function(){
 		return true;
 	};
 
+	&#x2F;**
+     * Parses URI
+     * @method _parseURI
+     * @private
+     * @param {The URL to parse} url
+     * @returns {Parsed URL} string
+     * Source: https:&#x2F;&#x2F;gist.github.com&#x2F;Yaffle&#x2F;1088850
+     * Tests: http:&#x2F;&#x2F;skew.org&#x2F;uri&#x2F;uri_tests.html
+     *&#x2F;
+    var _parseURI = function(url) {
+        var m = String(url).replace(&#x2F;^\s+|\s+$&#x2F;g, &#x27;&#x27;).match(&#x2F;^([^:\&#x2F;?#]+:)?(\&#x2F;\&#x2F;(?:[^:@]*(?::[^:@]*)?@)?(([^:\&#x2F;?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?&#x2F;);
+        &#x2F;&#x2F; authority = &#x27;&#x2F;&#x2F;&#x27; + user + &#x27;:&#x27; + pass &#x27;@&#x27; + hostname + &#x27;:&#x27; port
+        return (m ? {
+            href     : m[0] || &#x27;&#x27;,
+            protocol : m[1] || &#x27;&#x27;,
+            authority: m[2] || &#x27;&#x27;,
+            host     : m[3] || &#x27;&#x27;,
+            hostname : m[4] || &#x27;&#x27;,
+            port     : m[5] || &#x27;&#x27;,
+            pathname : m[6] || &#x27;&#x27;,
+            search   : m[7] || &#x27;&#x27;,
+            hash     : m[8] || &#x27;&#x27;
+            } : null);
+    }
+ 
+    &#x2F;**
+     * Abosolutizes a relative URL
+     * @method _absolutizeURI
+     * @private
+     * @param {e.g., location.href} base
+     * @param {URL to absolutize} href
+     * @returns {string} URL
+     * Source: https:&#x2F;&#x2F;gist.github.com&#x2F;Yaffle&#x2F;1088850
+     * Tests: http:&#x2F;&#x2F;skew.org&#x2F;uri&#x2F;uri_tests.html
+     *&#x2F;
+    var _absolutizeURI = function(base, href) {&#x2F;&#x2F; RFC 3986
+ 
+        function removeDotSegments(input) {
+            var output = [];
+            input.replace(&#x2F;^(\.\.?(\&#x2F;|$))+&#x2F;, &#x27;&#x27;)
+            .replace(&#x2F;\&#x2F;(\.(\&#x2F;|$))+&#x2F;g, &#x27;&#x2F;&#x27;)
+            .replace(&#x2F;\&#x2F;\.\.$&#x2F;, &#x27;&#x2F;..&#x2F;&#x27;)
+            .replace(&#x2F;\&#x2F;?[^\&#x2F;]*&#x2F;g, function (p) {
+                if (p === &#x27;&#x2F;..&#x27;) {
+                    output.pop();
+                } else {
+                    output.push(p);
+                }
+            });
+            return output.join(&#x27;&#x27;).replace(&#x2F;^\&#x2F;&#x2F;, input.charAt(0) === &#x27;&#x2F;&#x27; ? &#x27;&#x2F;&#x27; : &#x27;&#x27;);
+        }
+
+        href = _parseURI(href || &#x27;&#x27;);
+        base = _parseURI(base || &#x27;&#x27;);
+
+        return !href || !base ? null : (href.protocol || base.protocol) +
+            (href.protocol || href.authority ? href.authority : base.authority) +
+            removeDotSegments(href.protocol || href.authority || href.pathname.charAt(0) === &#x27;&#x2F;&#x27; ? href.pathname : (href.pathname ? ((base.authority &amp;&amp; !base.pathname ? &#x27;&#x2F;&#x27; : &#x27;&#x27;) + base.pathname.slice(0, base.pathname.lastIndexOf(&#x27;&#x2F;&#x27;) + 1) + href.pathname) : base.pathname)) +
+            (href.protocol || href.authority || href.pathname ? href.search : (href.search || base.search)) +
+            href.hash;
+    }
+
+    &#x2F;**
+     * Tests a URL to see if it&#x27;s on the same domain (local) or not
+     * @method _isLocalRequest
+     * @private
+     * @param {URL to test} url
+     * @returns {bool} Whether the URL is local or not
+     * Derived from: https:&#x2F;&#x2F;github.com&#x2F;jquery&#x2F;jquery&#x2F;blob&#x2F;master&#x2F;src&#x2F;ajax.js
+     *&#x2F;
+    var _isLocalRequest = function(url){
+        var rurl = &#x2F;^([\w.+-]+:)(?:\&#x2F;\&#x2F;([^\&#x2F;?#:]*)(?::(\d+)|)|)&#x2F;,
+            url = url.toLowerCase(),
+            parts = rurl.exec( url ),
+            ajaxLocation,
+            ajaxLocParts;
+
+        try {
+            ajaxLocation = location.href;
+        } catch( e ) {
+            &#x2F;&#x2F; Use the href attribute of an A element
+            &#x2F;&#x2F; since IE will modify it given document.location
+            ajaxLocation = document.createElement( &quot;a&quot; );
+            ajaxLocation.href = &quot;&quot;;
+            ajaxLocation = ajaxLocation.href;
+        }
+
+        ajaxLocation = ajaxLocation.toLowerCase();
+
+        &#x2F;&#x2F;uh oh, the url must be relative
+        &#x2F;&#x2F;make it fully qualified and re-regex url
+        if (!parts){
+            url = _absolutizeURI(ajaxLocation,url).toLowerCase();
+            parts = rurl.exec( url );
+        }
+
+        &#x2F;&#x2F; Segment location into parts
+        ajaxLocParts = rurl.exec( ajaxLocation ) || [];
+
+        &#x2F;&#x2F;do hostname and protocol of manifest URL match location.href? (a &quot;local&quot; request on the same domain)
+        var matched = !!( parts &amp;&amp; ajaxLocParts &amp;&amp; (parts[ 1 ] == ajaxLocParts[ 1 ] &amp;&amp; parts[ 2 ] == ajaxLocParts[ 2 ]) );
+
+        &#x2F;&#x2F;console.info(&quot;local?&quot;, matched, url)
+
+        return matched;
+    }
+
 	return {
 		&#x2F;**
 		 * Gets the current list of apps in the container
@@ -659,6 +766,7 @@ F2.extend(&#x27;&#x27;, (function(){
 
 						jQuery.ajax({
 							url:req.url,
+							type: (_isLocalRequest(req.url)) ? &#x27;POST&#x27; : &#x27;GET&#x27;,
 							data:{
 								params:F2.stringify(req.apps, F2.appConfigReplacer)
 							},
@@ -745,7 +853,7 @@ F2.extend(&#x27;&#x27;, (function(){
 <script src="..&#x2F;../js/f2.js?"></script>
 <script type="text/javascript">
 	window.prettyPrint && prettyPrint();
-	F2.extend('gitbranch', (function(){ return 'master'; }));
+	F2.extend('gitbranch', (function(){ return 'issue41'; }));
 </script>
 <script type="text/javascript">
 	if (F2.gitbranch() === 'master'){
